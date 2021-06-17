@@ -24,6 +24,5 @@ class Settings {
 }
 
 const settings = new Settings
-settings.get_settings()
 
 module.exports = settings
