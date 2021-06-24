@@ -8,6 +8,9 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="headerMenu">
+        <a class="button" href="/api/build">Получить список</a>
+    </div>
     <form id="settingsForm" action="/api/settings" method="POST">
         Название репозитория:<input type="text" name="repoName" class="settings_item" value="{{repoName}}">
         Название главной ветки:<input type="text" name="mainBranch" class="settings_item" value="{{mainBranch}}">
@@ -15,6 +18,5 @@
         Период проверки новых коммитов:<input type="number" name="period" class="settings_item" value="{{period}}">
         <button type="submit">Сохранить</button>
     </form>
-    {{!-- <script src="script.js"></script> --}}
 </body>
 </html>
