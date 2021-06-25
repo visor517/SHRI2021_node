@@ -1,22 +1,15 @@
 const express = require('express')
 const api = require('./controllers/api')
-const {getBase, postBase} = require('./controllers/shriBase')
 
 const apiRouter = new express.Router()
 
-apiRouter.use(express.urlencoded())
+apiRouter.use(express.json())
 
-apiRouter.get('/settings', async (req, res) => {
-    try {
-        const response = await getBase('https://shri.yandex/hw/api/conf')
-        return res.json(response)
-    }
-    catch (error) {
-        res.status(500).json(error)
-    }
-})
-
+apiRouter.get('/settings', api.getSettings)
 apiRouter.post('/settings', api.postSettings)
-apiRouter.get('/build', api.getBuildsList)
+apiRouter.get('/builds', api.getBuildsList)
+apiRouter.post('/builds/:commitHash', api.postRunBuild)
+apiRouter.get('/builds/:buildId', api.getBuildInfo)
+apiRouter.get('/builds/:buildId/logs', api.getBuildLog)
 
 exports.apiRouter = apiRouter;
