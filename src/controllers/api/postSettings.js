@@ -1,20 +1,27 @@
 const {execFile} = require('child_process')
 const {postBase} = require('../shriBase')
+const fs = require('fs')
 
 module.exports = async (req, res) => {
-    // здесь будем клонировать репозиторий
+    let result = {error: 0}
+    
+    await execFile('git', ['clone', req.body.repoName, 'temp'], (err, out) => {
+        if (err) {
+            console.log(err)
+            result.error = "Сбой клонирования"
+        }
+        else {
+            console.log('Склонировано')
+        }
+    })
 
-    // execFile('git', ['clone', 'https://github.com/visor517/GeekBrains_js', 'temp'], (err, out) => {
-    //     if (err) {
-    //         console.error(err)
-    //     }
-    //     else {
-    //         console.log(out)
-    //     }
-    // })
+    console.log('Хочу быть позже')
 
-    // в тестировании настройки из клиента в теле пост запроса передавались
+    const response = postBase('conf', req.body)
 
-    const response = await postBase('conf', req.body)
-    return res.json(response.data)
+    return res.json(result)
+
+    // пока споткнулся здесь
+    // не могу сделать execfile асинхронно.
+    // Не хочу сохранять настройки если клонирование не удалось
 }
