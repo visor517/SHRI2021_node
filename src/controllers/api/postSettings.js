@@ -5,20 +5,26 @@ const fs = require('fs')
 module.exports = async (req, res) => {
     let result = {error: 0}
     
-    await execFile('git', ['clone', req.body.repoName, 'temp'], (err, out) => {
-        if (err) {
-            console.log(err)
-            result.error = "Сбой клонирования"
-        }
-        else {
-            console.log('Склонировано')
-        }
+    let cloneRepo = new Promise((resolve, reject) => {
+        setTimeout(() => resolve('Клонировали'), Math.floor(Math.random() * 10000))
     })
 
-    console.log('Хочу быть позже')
+    // await execFile('git', ['clone', req.body.repoName, 'temp'], (err, out) => {
+    //     if (err) {
+    //         console.log(err)
+    //         result.error = "Сбой клонирования"
+    //     }
+    //     else {
+    //         console.log('Склонировано')
+    //     }
+    // })
 
-    const response = postBase('conf', req.body)
+    // console.log('Хочу быть позже')
 
+    const response = await postBase('conf', req.body)
+
+    console.log(await cloneRepo)
+    
     return res.json(result)
 
     // пока споткнулся здесь
