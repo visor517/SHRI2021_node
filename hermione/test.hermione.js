@@ -1,5 +1,3 @@
-const assert = require('assert')
-
 describe('Конвертер', () => {
     it('должен появится', async function() {
         const browser = this.browser
@@ -8,8 +6,7 @@ describe('Конвертер', () => {
         await browser.keys(['курс доллара к рублю','Enter'])
 
         const converter = await browser.$('.converter-form')
-        const isExisting = await converter.isExisting()
+        await converter.waitForExist()
 
-        assert.ok(isExisting, 'Конвертер валют не появился')
     })
 })
