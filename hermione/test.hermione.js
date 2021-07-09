@@ -1,12 +1,15 @@
-const assert = require('chai').assert;
+const assert = require('assert')
 
-describe('github', function() {
-    it('should find hermione', function() {
-        return this.browser
-            .url('https://github.com/gemini-testing/hermione')
-            .getText('#readme h1')
-            .then(function(title) {
-                assert.equal(title, 'Hermione2')
-            });
-    });
-});
+describe('Конвертер', () => {
+    it('должен появится', async function() {
+        const browser = this.browser
+
+        await browser.url('/')
+        await browser.keys(['курс доллара к рублю','Enter'])
+
+        const converter = await browser.$('.converter-form')
+        const isExisting = await converter.isExisting()
+
+        assert.ok(isExisting, 'Конвертер валют не появился')
+    })
+})
