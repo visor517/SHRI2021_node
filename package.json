@@ -23,8 +23,10 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "delay": "^5.0.0",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "hermione": "^4.1.4"
+    "hermione": "^4.1.4",
+    "hermione-selenium-runner": "file:hermione-selenium-runner"
   }
 }

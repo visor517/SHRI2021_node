@@ -7,5 +7,8 @@ module.exports = {
                 browserName: 'chrome'
             }
         }
+    },
+    plugins: {
+        'selenium-runner': true
     }
 }
