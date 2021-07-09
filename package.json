@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node src/index.js && node client/src/index.js",
     "serve": "nodemon src/index.js",
-    "test": "hermione --retry 3"
+    "test": "hermione --retry 3",
+    "jest": "jest"
   },
   "jest": {
     "testPathDirs": [
