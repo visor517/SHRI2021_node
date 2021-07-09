@@ -1,5 +1,5 @@
 module.exports = {
-    baseUrl: 'http://yandex.ru',
+    baseUrl: 'http://localhost:3000',
     gridUrl: 'http://localhost:4444/wd/hub',
     browsers: {
         chrome: {
@@ -9,6 +9,9 @@ module.exports = {
         }
     },
     plugins: {
-        'selenium-runner': true
+        'hermione-url-decorator':{
+            query: {'enable_exp': '1'}
+        },
+        'hermione-selenium-runner': true
     }
 }

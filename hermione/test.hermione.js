@@ -3,10 +3,9 @@ describe('Конвертер', () => {
         const browser = this.browser
 
         await browser.url('/')
-        await browser.keys(['курс доллара к рублю','Enter'])
+        //await browser.keys(['курс доллара к рублю','Enter'])
 
-        const converter = await browser.$('.converter-form')
+        const converter = await browser.$('.commit')    //просто проверяет, что коммиты есть
         await converter.waitForExist()
-
     })
 })

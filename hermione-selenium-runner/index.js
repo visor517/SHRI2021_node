@@ -1,6 +1,5 @@
 const fs = require('fs')
 const spawn = require('child_process').spawn
-const delay = require('delay')
 
 module.exports = (hermione) => {
     let selenium
@@ -14,7 +13,7 @@ module.exports = (hermione) => {
             stdio: ['ignore', file, file]
         })
 
-        await delay(2000)
+        await require('timers/promises').setTimeout(2000)
     })
 
     hermione.on(hermione.events.RUNNER_END, () => {

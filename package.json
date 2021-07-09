@@ -18,15 +18,16 @@
   "license": "ISC",
   "devDependencies": {
     "eslint": "^7.28.0",
+    "hermione": "^4.1.4",
+    "hermione-selenium-runner": "file:hermione-selenium-runner",
+    "hermione-url-decorator": "file:hermione-url-decorator",
     "jest": "^27.0.6",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "urijs": "^1.19.6"
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "delay": "^5.0.0",
     "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "hermione": "^4.1.4",
-    "hermione-selenium-runner": "file:hermione-selenium-runner"
+    "express": "^4.17.1"
   }
 }
