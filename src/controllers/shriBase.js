@@ -9,7 +9,7 @@ module.exports.getBase = async function (url) {
         return response.data
     }
     catch (error) {
-        console.log(`Ошибка axios.get(${url})`)
+        console.log(`Ошибка axios.get(${url}) /controllers/shriBase`)
         return response.status(500)
     }
 }
@@ -20,7 +20,7 @@ module.exports.postBase = async function (url, data) {
         return response.data
     }
     catch (error) {
-        console.log(`Ошибка axios.post(${url})`)
+        console.log(`Ошибка axios.post(${url}) /controllers/shriBase`)
         return response.status(500)
     }
 }
